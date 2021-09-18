@@ -1,6 +1,6 @@
 import express from 'express';
 import { log } from 'debug';
-
+console.log('server ok!')
 const app: express.Application = express();
 
 app.get('/', (_req: express.Request, res: express.Response) => {
