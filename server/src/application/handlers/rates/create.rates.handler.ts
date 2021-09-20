@@ -1,12 +1,13 @@
-//import { User } from "../../../domain/entities/user.entity";
-//import userRepository from "../../../infrastructure/repositories/user.repository";
-//import { CreateUserCommand } from "../../commands/users/create.user.command";
+import { Rate } from "../../../domain/entities/rates.entity";
+//import rateRepository from "../../../infrastructure/repositories/user.repository";
+import { CreateRateCommand } from "../../commands /rates/create.rates.command";
 
 class CreateRateHandler {
     async execute(command: CreateRateCommand) {
         const rate: Rate = {
-            idtechnology: command.idtechnology,
-            nametechnology: command.nametechnology,
+            id: command.id,
+            technology_id: command.technology_id,
+            
         };
         
         await rateRepository.save(rate);

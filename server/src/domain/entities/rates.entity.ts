@@ -1,4 +1,5 @@
-export interface CreateRateCommand {
+export interface Rate 
+{
     id: number;
     technology_id: number;
     seniority:string,
