@@ -1,5 +1,5 @@
 //import shortid from "shortid";
-import{Rate} from "../../domain/entities/rates.entity"
+import Rate from "../../domain/entities/rates.entity"
 
 class RatesRepository {
     private rates: Rate[];
@@ -8,8 +8,8 @@ class RatesRepository {
         this.rates = [];
     }
 
-    async findOneById(id: number): Promise<Rate | null> {
-        const user = this.rates.find(u => u.id === id);
+    async findOneById(id: string): Promise<Rate | null> {
+        const user = this.rates.find(u => u.getId() === id);
 
         return (user) ? user : null;
     }
@@ -19,7 +19,7 @@ class RatesRepository {
     }
 
     async save(rates: Rate): Promise<void> {
-        if (!rates.id) {}
+        if (!rates.getId()) {}
        
     }
 }
