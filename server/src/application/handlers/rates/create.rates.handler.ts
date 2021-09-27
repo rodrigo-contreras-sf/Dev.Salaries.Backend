@@ -1,8 +1,8 @@
 import  Rate  from "../../../domain/entities/rates.entity";
 import { Seniority } from "../../../domain/enums/seniority.enum";
 import { Language } from "../../../domain/enums/language.enum";
-//import rateRepository from "../../../infrastructure/repositories/user.repository";
-import { CreateRateCommand } from "../../commands /rates/create.rates.command";
+import RatesRepository from "../../../infrastructure/repositories/rate.repository";
+import { CreateRateCommand } from "../../../application/commands /rates/create.rates.command";
 
 class CreateRateHandler {
     async execute(command: CreateRateCommand) {
@@ -15,7 +15,7 @@ class CreateRateHandler {
              command.currency,
              );
             
-        //await rateRepository.save(rate);
+        await RatesRepository.save(rate);
     }
 }
 

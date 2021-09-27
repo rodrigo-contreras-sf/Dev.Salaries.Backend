@@ -9,9 +9,9 @@ class RatesRepository {
     }
 
     async findOneById(id: string): Promise<Rate | null> {
-        const user = this.rates.find(u => u.getId() === id);
+        const rates = this.rates.find(u => u.getId() === id);
 
-        return (user) ? user : null;
+        return (rates) ? rates : null;
     }
 
     async findAll(): Promise<Rate[]> {
@@ -19,7 +19,17 @@ class RatesRepository {
     }
 
     async save(rates: Rate): Promise<void> {
-        if (!rates.getId()) {}
+        if (!rates.getId()){
+            this.rates.push(rates);
+        } else {
+            this.rates = this.rates.map(function(u) {
+                return u.getId()=== rates.getId() ? rates : u; 
+            });
+        }
        
     }
+    async deleteById(id: string):Promise<void>{
+        this.rates = this.rates.filter(u => u.getId() !== id);
+    }
 }
+export default new RatesRepository();
