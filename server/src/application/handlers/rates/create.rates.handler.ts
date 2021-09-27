@@ -10,8 +10,8 @@ class CreateRateHandler {
             command.technology,
             command.seniority as Seniority,
             command.language as Language,
-            command.average_salary,
-            command.gross_margin, 
+            command.averageSalary,
+            command.grossMargin, 
             command.currency,
             );
             
