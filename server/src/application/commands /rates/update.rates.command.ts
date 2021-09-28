@@ -1,37 +1,37 @@
-import { Seniority } from "../../../domain/enums/seniority.enum"
-import { Language } from "../../../domain/enums/language.enum"
-import shortid from "shortid";
+//import { Seniority } from "../../../domain/enums/seniority.enum"
+//import { Language } from "../../../domain/enums/language.enum"
 
-class CreateRateCommand {
-    // id con short id ?
+class UpdateRateCommand {
     private id: string;
-    private technology: number;
-    private seniority: Seniority;
-    private language: Language;
+    //private technology: number;
+    //private seniority: Seniority;
+    //private language: Language;
     private averageSalary: string;
     private grossMargin: string;
-    private currency: string;
+    //private currency: string;
 
     constructor(
-        technology: number,
-        seniority: Seniority,
-        language: Language,
+        id: string,
+        //technology: number,
+        //seniority: Seniority,
+        //language: Language,
         averageSalary: string,
         grossMargin: string,
-        currency: string
+        //currency: string
         )
     {
-        this.id = shortid.generate();
-        this.technology = technology;
-        this.seniority = seniority;
-        this.language = language;
+        this.id = id;
+        //this.technology = technology;
+        //this.seniority = seniority;
+        //this.language = language;
         this.averageSalary = averageSalary;
         this.grossMargin = grossMargin;
-        this.currency = currency;
+        //this.currency = currency;
     }
     public getId(): string {
         return this.id;
     }
+    /*
     public getTechnology(): number {
         return this.technology;
     }
@@ -41,15 +41,18 @@ class CreateRateCommand {
     public getLanguage(): Language {
         return this.language;
     }
+    */
     public getAverageSalary(): string {
         return this.averageSalary;
     }
     public getGrossMargin(): string {
         return this.grossMargin;
     }
+    /*
     public getCurrency(): string {
         return this.currency;
     }
+    */
 }
 
-export default CreateRateCommand
+export default UpdateRateCommand

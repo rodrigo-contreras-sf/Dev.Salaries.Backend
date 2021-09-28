@@ -2,7 +2,7 @@ import  Rate  from "../../../domain/entities/rates.entity";
 import { Seniority } from "../../../domain/enums/seniority.enum";
 import { Language } from "../../../domain/enums/language.enum";
 import RatesRepository from "../../../infrastructure/repositories/rate.repository";
-import { CreateRateCommand } from "../../../application/commands /rates/create.rates.command";
+import  CreateRateCommand  from "../../../application/commands /rates/create.rates.command";
 
 class CreateRateHandler {
     async execute(command: CreateRateCommand) {
@@ -10,8 +10,8 @@ class CreateRateHandler {
             command.technology,
             command.seniority as Seniority,
             command.language as Language,
-            command.average_salary,
-            command.gross_margin, 
+            command.averageSalary,
+            command.grossMargin, 
              command.currency,
              );
             

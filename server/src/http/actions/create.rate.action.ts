@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { CreateRateCommand } from "../../../application/commands/rates/create.rates.command";
-import createUserHandler from "../../../application/handlers/rates/create.rates.handler";
+import { CreateRateCommand } from "../../application/commands /rates/create.rates.command";
+import createRateHandler from "../../application/handlers/rates/create.rates.handler";
 
 class CreateRateAction {
     async run(req: Request, res: Response) {
@@ -10,7 +10,7 @@ class CreateRateAction {
             return res.status(400).json({message: "Email or password missing"});
         }
         
-        await createUserHandler.execute(command);
+        await createRateHandler.execute(command);
         
         return res.status(201).json({message: "Rate created"});
     }

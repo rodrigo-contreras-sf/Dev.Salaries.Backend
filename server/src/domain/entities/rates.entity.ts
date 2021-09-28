@@ -8,8 +8,8 @@ class Rate
     private technology: number;
     private seniority:Seniority;
     private languaje:Language;
-    private average_salary:string;
-    private gross_margin:string;
+    private averageSalary:string;
+    private grossMargin:string;
     private currency:string;
     
 
@@ -17,8 +17,8 @@ class Rate
         technology: number,
          seniority:Seniority,
           languaje:Language,
-           average_salary:string,
-            gross_margin:string,
+           averageSalary:string,
+            grossMargin:string,
              currency:string
              ) 
         {
@@ -26,8 +26,8 @@ class Rate
         this.technology = technology;
         this.seniority = seniority;
         this.languaje = languaje;
-        this.average_salary = average_salary;
-        this.gross_margin = gross_margin;
+        this.averageSalary = averageSalary;
+        this.grossMargin = grossMargin;
         this.currency = currency;
     }
 
@@ -44,10 +44,10 @@ class Rate
         return this.languaje;
     }
     public getAverage_salary(): string {
-        return this.average_salary;
+        return this.averageSalary;
     }
     public getGross_margin(): string {
-        return this.gross_margin;
+        return this.grossMargin;
     }
     public getCurrency(): string {
         return this.currency;
@@ -62,10 +62,10 @@ class Rate
         this.languaje=languaje;
     }
     public setAverage_salar(average_salary: string) {
-        this.average_salary=average_salary;
+        this.averageSalary=average_salary;
     }
     public setGross_margin(gross_margin: string) {
-        this.gross_margin=gross_margin;
+        this.grossMargin=gross_margin;
     }
     public setCurrency(currency: string) {
         this.currency=currency;
@@ -73,12 +73,12 @@ class Rate
 
     public Total()
     {
-        return parseInt(this.gross_margin) + parseInt(this.average_salary);
+        return parseInt(this.grossMargin) + parseInt(this.averageSalary);
     }
     
     public grossMarginPercentage()
     {
-        return parseInt(this.gross_margin) / this.Total();
+        return parseInt(this.grossMargin) / this.Total();
     }
 
 
