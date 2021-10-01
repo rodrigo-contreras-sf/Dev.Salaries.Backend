@@ -5,18 +5,18 @@ import shortid from "shortid";
 class Rate 
 {
     private id: string;
-    private technology: number;
+    private technology: string;
     private seniority:Seniority;
-    private languaje:Language;
+    private language:Language;
     private averageSalary:string;
     private grossMargin:string;
     private currency:string;
     
 
     constructor(
-        technology: number,
+        technology: string,
          seniority:Seniority,
-          languaje:Language,
+          language:Language,
            averageSalary:string,
             grossMargin:string,
              currency:string
@@ -25,7 +25,7 @@ class Rate
         this.id = shortid.generate();
         this.technology = technology;
         this.seniority = seniority;
-        this.languaje = languaje;
+        this.language = language;
         this.averageSalary = averageSalary;
         this.grossMargin = grossMargin;
         this.currency = currency;
@@ -34,14 +34,14 @@ class Rate
     public getId(): string {
         return this.id;
     }
-    public getTechnology(): number {
+    public getTechnology(): string {
         return this.technology;
     }
     public getSeniority(): Seniority {
         return this.seniority;
     }
-    public getLanguaje(): Language {
-        return this.languaje;
+    public getLanguage(): Language {
+        return this.language;
     }
     public getAverage_salary(): string {
         return this.averageSalary;
@@ -52,19 +52,19 @@ class Rate
     public getCurrency(): string {
         return this.currency;
     }
-    public setTechnology(technology: number) {
+    public setTechnology(technology: string) {
         this.technology=technology;
     }
     public setSeniority(seniority: Seniority) {
         this.seniority=seniority;
     }
-    public setlanguaje(languaje: Language) {
-        this.languaje=languaje;
+    public setlanguage(languaje: Language) {
+        this.language=languaje;
     }
-    public setAverage_salar(average_salary: string) {
+    public setAverageSalary(average_salary: string) {
         this.averageSalary=average_salary;
     }
-    public setGross_margin(gross_margin: string) {
+    public setGrossMargin(gross_margin: string) {
         this.grossMargin=gross_margin;
     }
     public setCurrency(currency: string) {

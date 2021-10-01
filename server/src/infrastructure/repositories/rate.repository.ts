@@ -9,7 +9,7 @@ class RatesRepository {
     }
 
     async findOneById(id: string): Promise<Rate | null> {
-        const rates = this.rates.find(u => u.getId() === id);
+        const rates = this.rates.find(r => r.getId() === id);
 
         return (rates) ? rates : null;
     }
@@ -22,14 +22,26 @@ class RatesRepository {
         if (!rates.getId()){
             this.rates.push(rates);
         } else {
-            this.rates = this.rates.map(function(u) {
-                return u.getId()=== rates.getId() ? rates : u; 
+            this.rates = this.rates.map(function(r) {
+                return r.getId()=== rates.getId() ? rates : r; 
             });
         }
        
     }
     async deleteById(id: string):Promise<void>{
-        this.rates = this.rates.filter(u => u.getId() !== id);
+        this.rates = this.rates.filter(r => r.getId() !== id);
+    }
+
+    async exist(            
+    technology: string,
+    seniority: string,
+    language:string,
+    currency:string,)
+    {   
+        const rate = this.rates.find(r => r.getLanguage() === language && r.getSeniority() 
+        === seniority && r.getCurrency() === currency && r.getTechnology() === technology);
+
+        return !!rate;
     }
 }
 export default new RatesRepository();
