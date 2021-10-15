@@ -1,3 +1,4 @@
+   
 class DeleteRateCommand {
     private id: string;
 

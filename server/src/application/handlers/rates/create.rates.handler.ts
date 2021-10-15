@@ -1,21 +1,36 @@
 import  Rate  from "../../../domain/entities/rates.entity";
-import { Seniority } from "../../../domain/enums/seniority.enum";
-import { Language } from "../../../domain/enums/language.enum";
-//import rateRepository from "../../../infrastructure/repositories/user.repository";
-import { CreateRateCommand } from "../../commands/rates/create.rates.command";
+import RatesRepository from "../../../infrastructure/repositories/rate.repository";
+import TechnologyRepository from "../../../infrastructure/repositories/technology.repository";
+import  CreateRateCommand  from "../../../application/commands /rates/create.rates.command";
+import Technology from "../../../domain/entities/technology.entity";
 
 class CreateRateHandler {
     async execute(command: CreateRateCommand) {
+
+        const technology: Technology | null  = await TechnologyRepository.findOneById(command.getTechnology());
+        
+        if(!technology){
+            throw new Error
+        }
+
+        if(await RatesRepository.exist(command.getTechnology(),
+            command.getSeniority(),
+            command.getLanguage(),
+            command.getCurrency())){
+            
+                throw new Error ("res.status(404).json({message: Error.message})?");
+        }
+
         const rate: Rate = new Rate( 
-            command.technology,
-            command.seniority as Seniority,
-            command.language as Language,
-            command.averageSalary,
-            command.grossMargin, 
-            command.currency,
+            command.getTechnology(),
+            command.getSeniority(),
+            command.getLanguage(),
+            command.getAverageSalary(),
+            command.getGrossMargin(), 
+            command.getCurrency(),
             );
             
-        //await rateRepository.save(rate);
+        await RatesRepository.save(rate);
     }
 }
 

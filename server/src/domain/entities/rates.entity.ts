@@ -1,26 +1,27 @@
-import { Seniority } from "../enums/seniority.enum"
-import { Language } from "../enums/language.enum"
+import {Seniority} from "../enums/seniority.enum"
+import {Language} from "../enums/language.enum"
 import shortid from "shortid";
 //import RateRoutes from "../../http/routes/rates.routes";
-
 class Rate 
 {
     private id: string;
-    private technology: number;
-    private seniority: Seniority;
-    private language: Language;
-    private averageSalary: string;
-    private grossMargin: string;
-    private currency: string;
+    private technology: string;
+    private seniority:Seniority;
+    private language:Language;
+    private averageSalary:string;
+    private grossMargin:string;
+    private currency:string;
     
+
     constructor(
-        technology: number,
-        seniority: Seniority,
-        language: Language,
-        averageSalary: string,
-        grossMargin: string,
-        currency: string
-        ){
+        technology: string,
+         seniority:Seniority,
+          language:Language,
+           averageSalary:string,
+            grossMargin:string,
+             currency:string
+             ) 
+        {
         this.id = shortid.generate();
         this.technology = technology;
         this.seniority = seniority;
@@ -33,7 +34,7 @@ class Rate
     public getId(): string {
         return this.id;
     }
-    public getTechnology(): number {
+    public getTechnology(): string {
         return this.technology;
     }
     public getSeniority(): Seniority {
@@ -42,40 +43,46 @@ class Rate
     public getLanguage(): Language {
         return this.language;
     }
-    public getAverageSalary(): string {
+    public getAverage_salary(): string {
         return this.averageSalary;
     }
-    public getGrossMargin(): string {
+    public getGross_margin(): string {
         return this.grossMargin;
     }
     public getCurrency(): string {
         return this.currency;
     }
-    public setTechnology(technology: number) {
-        this.technology = technology;
+    public setTechnology(technology: string) {
+        this.technology=technology;
     }
     public setSeniority(seniority: Seniority) {
-        this.seniority = seniority;
+        this.seniority=seniority;
     }
-    public setlanguaje(languaje: Language) {
-        this.language = languaje;
+    public setlanguage(languaje: Language) {
+        this.language=languaje;
     }
-    public setAverageSalary(averageSalary: string) {
-        this.averageSalary = averageSalary;
+    public setAverageSalary(average_salary: string) {
+        this.averageSalary=average_salary;
     }
-    public setGrossMargin(grossMargin: string) {
-        this.grossMargin = grossMargin;
+    public setGrossMargin(gross_margin: string) {
+        this.grossMargin=gross_margin;
     }
     public setCurrency(currency: string) {
-        this.currency = currency;
+        this.currency=currency;
     }
+
     public Total()
     {
         return parseInt(this.grossMargin) + parseInt(this.averageSalary);
     }
+    
     public grossMarginPercentage()
     {
         return parseInt(this.grossMargin) / this.Total();
     }
+
+
+
 }
 export default Rate;
+

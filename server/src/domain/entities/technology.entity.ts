@@ -6,10 +6,11 @@ class Technology
     private name: string;
     private id: string;
     
-    constructor(name: string) {
+    constructor( name: string) {
         this.id = shortid.generate();
         this.name = name;
     }
+
     public getId(): string {
         return this.id;
     }
@@ -17,8 +18,9 @@ class Technology
         return this.name;
     }
     public setName(name: string) {
-        this.name = name;
+        this.name=name;
     }
+
 }
-export default Technology;
+export default Technology ;
 
