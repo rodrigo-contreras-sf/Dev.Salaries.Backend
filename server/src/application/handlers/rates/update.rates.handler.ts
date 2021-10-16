@@ -24,4 +24,4 @@ class UpdateRateHandler {
 }
 
 
-//export default new UpdateRateHandler()
+export default new UpdateRateHandler()
