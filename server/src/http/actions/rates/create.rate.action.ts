@@ -4,10 +4,20 @@ import createRateHandler from "../../../application/handlers/rates/create.rates.
 
 class CreateRateAction {
     async run(req: Request, res: Response) {
-        const command: CreateRateCommand = req.body;
-        //        const command: CreateRateCommand = new CreateRateCommand( req.body.averageSalary, req.body.grossMargin, req.body.technology, req.body.seniority, req.body.currency);
+                const command: CreateRateCommand = new CreateRateCommand(
+                    req.body.technology,
+                    req.body.seniority,
+                    req.body.lnguage,
+                    req.body.grossMargin,
+                    req.body.currency,
+                    req.body.averageSalary,);
     
-        if (!command.getTechnology() || !command.getSeniority() || !command.getLanguage() || !command.getGrossMargin() || !command.getCurrency() || !command.getAverageSalary() ) {
+        if (!command.getTechnology() ||
+         !command.getSeniority() ||
+          !command.getLanguage() ||
+           !command.getGrossMargin() ||
+            !command.getCurrency() ||
+             !command.getAverageSalary() ) {
             return res.status(400).json({message: "Missing"});
         }
         
