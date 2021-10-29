@@ -5,6 +5,7 @@ import RateRoutes from './http/routes/rates.routes';
 import { log } from 'debug';
 import expressWinston from 'express-winston';
 import winston from 'winston';
+import Technology from './domain/entities/technology.entity';
 const app: express.Application = express();
 const loggerOptions: expressWinston.LoggerOptions = {
   transports: [new winston.transports.Console()],
@@ -21,6 +22,10 @@ app.use(expressWinston.logger(loggerOptions));
 const routes: Array<CommonRoutes> = [];
 app.use(cors());
 app.use(express.json());
+new Technology('Vue');
+new Technology('React');
+new Technology('Angular');
+new Technology('Phyton');
 routes.push(new RateRoutes(app));
 app.listen(3000, () => {
   routes.forEach((route: CommonRoutes) => {

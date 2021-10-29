@@ -1,7 +1,7 @@
-import  Rate  from "../../../domain/entities/rates.entity";
+import Rate from "../../../domain/entities/rates.entity";
 import RatesRepository from "../../../infrastructure/repositories/rate.repository";
 import TechnologyRepository from "../../../infrastructure/repositories/technology.repository";
-import  CreateRateCommand  from "../../../application/commands /rates/create.rates.command";
+import CreateRateCommand  from "../../../application/commands/rates/create.rates.command";
 import Technology from "../../../domain/entities/technology.entity";
 
 class CreateRateHandler {
@@ -29,7 +29,6 @@ class CreateRateHandler {
             command.getGrossMargin(), 
             command.getCurrency(),
             );
-            
         await RatesRepository.save(rate);
     }
 }

@@ -2,7 +2,7 @@ import  Rate  from "../../../domain/entities/rates.entity";
 //import { Seniority } from "../../../domain/enums/seniority.enum";
 //import { Language } from "../../../domain/enums/language.enum";
 import RatesRepository from "../../../infrastructure/repositories/rate.repository";
-import UpdateRateCommand  from "../../../application/commands /rates/update.rates.command"
+import UpdateRateCommand  from "../../../application/commands/rates/update.rates.command"
 
 class UpdateRateHandler {
     async execute(command: UpdateRateCommand) {
@@ -23,5 +23,4 @@ class UpdateRateHandler {
     }
 }
 
-
-//export default new UpdateRateHandler()
+export default new UpdateRateHandler()

@@ -1,5 +1,5 @@
 import RatesRepository from "../../../infrastructure/repositories/rate.repository";
-import  DeleteRateCommand  from "../../commands /rates/delete.rates.command";
+import DeleteRateCommand  from "../../commands/rates/delete.rates.command";
 class DeleteRateHandler {
     async execute(command: DeleteRateCommand) {
         const rates = await RatesRepository.findOneById(command.getId());

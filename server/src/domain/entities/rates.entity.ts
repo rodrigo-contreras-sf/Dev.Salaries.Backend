@@ -1,5 +1,5 @@
-import {Seniority} from "../enums/seniority.enum"
-import {Language} from "../enums/language.enum"
+import { Seniority } from "../enums/seniority.enum"
+import { Language } from "../enums/language.enum"
 import shortid from "shortid";
 //import RateRoutes from "../../http/routes/rates.routes";
 class Rate 
@@ -12,7 +12,6 @@ class Rate
     private grossMargin:string;
     private currency:string;
     
-
     constructor(
         technology: string,
          seniority:Seniority,
@@ -80,9 +79,6 @@ class Rate
     {
         return parseInt(this.grossMargin) / this.Total();
     }
-
-
-
 }
 export default Rate;
 
