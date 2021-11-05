@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import  CreateRateCommand  from "../../../application/commands /rates/create.rates.command";
+import CreateRateCommand  from "../../../application/commands/rates/create.rates.command";
 import createRateHandler from "../../../application/handlers/rates/create.rates.handler";
 
 class CreateRateAction {
