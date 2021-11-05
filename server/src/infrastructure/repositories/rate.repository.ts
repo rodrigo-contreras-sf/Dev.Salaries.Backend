@@ -1,5 +1,7 @@
-//import shortid from "shortid";
 import Rate from "../../domain/entities/rates.entity"
+import { Language } from "../../domain/enums/language.enum";
+import { Seniority } from "../../domain/enums/seniority.enum";
+import Technology from "../../domain/entities/technology.entity"
 
 class RatesRepository {
     private rates: Rate[];
@@ -33,15 +35,35 @@ class RatesRepository {
     }
 
     async exist(            
-    technology: string,
+    technology: Technology,
     seniority: string,
-    language:string,
-    currency:string,)
+    language: string,
+    currency: string,)
     {   
         const rate = this.rates.find(r => r.getLanguage() === language && r.getSeniority() 
         === seniority && r.getCurrency() === currency && r.getTechnology() === technology);
 
         return !!rate;
+    }
+
+    async findAllBy(technologyIds: String[], seniority:Seniority, language:Language, currency:string):Promise<Rate[]>{
+        //filtros nulleables verificar con if 
+        let query = this.rates;
+        if(technologyIds){
+            query = query.filter(u => technologyIds.includes(u.getTechnology().getId()));
+        }//hacer lo mismo con los otros parametros
+        if(seniority){
+            query = query.filter(u => seniority === u.getSeniority());
+        }
+        if(language){
+            query = query.filter(u => language === u.getLanguage());
+        }
+        if(currency){
+            query = query.filter(u => currency === u.getCurrency());
+        }
+
+        return query
+        //agregar return promis array de rates
     }
 }
 export default new RatesRepository();

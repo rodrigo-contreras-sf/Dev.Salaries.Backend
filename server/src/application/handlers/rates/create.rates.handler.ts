@@ -7,7 +7,7 @@ import Technology from "../../../domain/entities/technology.entity";
 class CreateRateHandler {
     async execute(command: CreateRateCommand) {
 
-        const technology: Technology | null  = await TechnologyRepository.findOneById(command.getTechnology());
+        const technology: Technology | null  = await TechnologyRepository.findOneById(command.getTechnology().getId());
         
         if(!technology){
             throw new Error
@@ -18,7 +18,7 @@ class CreateRateHandler {
             command.getLanguage(),
             command.getCurrency())){
             
-                throw new Error ("res.status(404).json({message: Error.message})?");
+            throw new Error ("res.status(404).json({message: Error.message})?");
         }
 
         const rate: Rate = new Rate( 

@@ -1,4 +1,3 @@
-//import shortid from "shortid";
 import Technology from "../../domain/entities/technology.entity"
 
 class TechnologyRepository {
@@ -37,5 +36,10 @@ class TechnologyRepository {
     async deleteById(id: string):Promise<void>{
         this.technology = this.technology.filter(u => u.getId() !== id);
     }
+    async exist(name: string){   
+        const technology = this.technology.find(r => r.getName() == name );
+        return !!technology;
+    }
 }
+
 export default new TechnologyRepository();

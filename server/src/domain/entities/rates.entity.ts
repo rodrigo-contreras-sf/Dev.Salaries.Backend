@@ -1,11 +1,12 @@
-import { Seniority } from "../enums/seniority.enum"
-import { Language } from "../enums/language.enum"
+import {Seniority} from "../enums/seniority.enum"
+import {Language} from "../enums/language.enum"
 import shortid from "shortid";
-//import RateRoutes from "../../http/routes/rates.routes";
+import Technology from "./technology.entity";
+
 class Rate 
 {
     private id: string;
-    private technology: string;
+    private technology: Technology;
     private seniority:Seniority;
     private language:Language;
     private averageSalary:string;
@@ -13,7 +14,7 @@ class Rate
     private currency:string;
     
     constructor(
-        technology: string,
+        technology: Technology,
          seniority:Seniority,
           language:Language,
            averageSalary:string,
@@ -33,7 +34,7 @@ class Rate
     public getId(): string {
         return this.id;
     }
-    public getTechnology(): string {
+    public getTechnology(): Technology {
         return this.technology;
     }
     public getSeniority(): Seniority {
@@ -51,7 +52,7 @@ class Rate
     public getCurrency(): string {
         return this.currency;
     }
-    public setTechnology(technology: string) {
+    public setTechnology(technology: Technology) {
         this.technology=technology;
     }
     public setSeniority(seniority: Seniority) {
@@ -81,4 +82,3 @@ class Rate
     }
 }
 export default Rate;
-
