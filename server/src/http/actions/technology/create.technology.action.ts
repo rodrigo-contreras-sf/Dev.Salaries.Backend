@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import  CreateTechnologyCommand  from "../../../application/commands /technology/create.technology.command";
+import  CreateTechnologyCommand  from "../../../application/commands/technology/create.technology.command";
 import CreateTechnologyHandler from "../../../application/handlers/technology/create.technology.handler";
 
 class CreateTechnologyAction {

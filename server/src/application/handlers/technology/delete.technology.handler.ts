@@ -1,7 +1,7 @@
 import TechnologyRepository from "../../../infrastructure/repositories/rate.repository";
-import  DeleteTechnologyCommand  from "../../commands/rates/delete.rates.command";
+import DeleteTechnologyCommand  from "../../commands/technology/delete.technology.command";
 
-class DeleteRateHandler {
+class DeleteTechnologyHandler {
     async execute(command: DeleteTechnologyCommand) {
         const technology = await TechnologyRepository.findOneById(command.getId());
         if (!technology) {
@@ -11,4 +11,4 @@ class DeleteRateHandler {
     }
 }
 
-export default new DeleteRateHandler();
+export default new DeleteTechnologyHandler();

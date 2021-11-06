@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import  UpdateRateHandler  from "../../../application/handlers/rates/update.rates.handler";
-import UpdateRateCommand from "../../../../src/application/commands /rates/update.rates.command";
+import UpdateRateCommand from "../../../../src/application/commands/rates/update.rates.command";
 
 class UpdateUserAction {
     async run(req: Request, res: Response) {

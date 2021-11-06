@@ -1,9 +1,7 @@
-//import RateRoutes from "../../http/routes/rates.routes";
 import shortid from "shortid";
 
 class Technology 
 {
-    //private id: number;
     private name: string;
     private id: string;
     

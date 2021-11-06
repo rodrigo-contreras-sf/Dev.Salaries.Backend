@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import  DeleteTechnologyCommand  from "../../../application/commands /technology/delete.technology.command";
-import DeleteTechnologyHandler from "../../../application/handlers/rates/delete.technology.handler";
+import DeleteTechnologyCommand  from "../../../application/commands/technology/delete.technology.command";
+import DeleteTechnologyHandler from "../../../application/handlers/technology/delete.technology.handler";
 
 class DeleteTechnologyAction {
     async run(req: Request, res: Response) {

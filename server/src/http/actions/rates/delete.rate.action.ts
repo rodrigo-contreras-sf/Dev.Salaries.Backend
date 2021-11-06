@@ -1,5 +1,5 @@
 import { Request, Response} from "express";
-import  DeleteRateCommand  from "../../../application/commands /rates/delete.rates.command";
+import  DeleteRateCommand  from "../../../application/commands/rates/delete.rates.command";
 import DeleteRateHandler from "../../../application/handlers/rates/delete.rates.handler";
 
 class DeleteUserAction {

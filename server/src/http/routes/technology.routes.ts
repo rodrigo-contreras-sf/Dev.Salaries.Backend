@@ -1,11 +1,11 @@
 import createTechnologyAction from "../../http/actions/technology/create.technology.action";
 import CommonRoutes from "./common.routes";
-import { Application, } from "express";//Request, Response
+import { Application } from "express";
 import deleteTechnologyAction from "../actions/technology/delete.technology.action";
 import updateTechnologyAction from "../actions/technology/update.technology.action";
 import listTechnologyAction from "../actions/rates/list.rate.action";
 
-class RateRoutes extends CommonRoutes {
+class TechnologyRoutes extends CommonRoutes {
   constructor(app: Application) {
     super(app, 'Technology');
   }
@@ -24,4 +24,4 @@ class RateRoutes extends CommonRoutes {
   }
 }
 
-export default RateRoutes;
+export default TechnologyRoutes;

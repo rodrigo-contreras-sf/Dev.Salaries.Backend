@@ -1,7 +1,6 @@
 import Rate from "../../domain/entities/rates.entity"
 import { Language } from "../../domain/enums/language.enum";
 import { Seniority } from "../../domain/enums/seniority.enum";
-import Technology from "../../domain/entities/technology.entity"
 
 class RatesRepository {
     private rates: Rate[];
@@ -35,13 +34,13 @@ class RatesRepository {
     }
 
     async exist(            
-    technology: Technology,
+    technology: string,
     seniority: string,
     language: string,
     currency: string,)
     {   
         const rate = this.rates.find(r => r.getLanguage() === language && r.getSeniority() 
-        === seniority && r.getCurrency() === currency && r.getTechnology() === technology);
+        === seniority && r.getCurrency() === currency && r.getTechnology().getId() === technology);
 
         return !!rate;
     }

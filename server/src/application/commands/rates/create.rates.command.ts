@@ -1,9 +1,8 @@
 import { Seniority } from "../../../domain/enums/seniority.enum"
 import { Language } from "../../../domain/enums/language.enum"
-import Technology from "../../../domain/entities/technology.entity";
 
 class CreateRateCommand {
-    private technology: Technology;
+    private technologyId: string;
     private seniority: Seniority;
     private language: Language;
     private averageSalary: string;
@@ -11,7 +10,7 @@ class CreateRateCommand {
     private currency: string;
 
     constructor(
-        technology: Technology,
+        technologyId: string,
         seniority: Seniority,
         language: Language,
         averageSalary: string,
@@ -19,7 +18,7 @@ class CreateRateCommand {
         currency: string
         )
     {
-        this.technology = technology;
+        this.technologyId = technologyId;
         this.seniority = seniority;
         this.language = language;
         this.averageSalary = averageSalary;
@@ -27,8 +26,8 @@ class CreateRateCommand {
         this.currency = currency;
     }
     
-    public getTechnology(): Technology {
-        return this.technology;
+    public getTechnologyId(): string {
+        return this.technologyId;
     }
     public getSeniority(): Seniority {
         return this.seniority;

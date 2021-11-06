@@ -11,15 +11,6 @@ class CreateRateAction {
                     req.body.grossMargin,
                     req.body.currency,
                     req.body.averageSalary,);
-    
-        if (!command.getTechnology() ||
-         !command.getSeniority() ||
-          !command.getLanguage() ||
-           !command.getGrossMargin() ||
-            !command.getCurrency() ||
-             !command.getAverageSalary() ) {
-            return res.status(400).json({message: "Missing"});
-        }
         
         await createRateHandler.execute(command);
         

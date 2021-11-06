@@ -70,12 +70,10 @@ class Rate
     public setCurrency(currency: string) {
         this.currency=currency;
     }
-
     public Total()
     {
         return parseInt(this.grossMargin) + parseInt(this.averageSalary);
     }
-    
     public grossMarginPercentage()
     {
         return parseInt(this.grossMargin) / this.Total();

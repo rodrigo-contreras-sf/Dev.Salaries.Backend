@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import  UpdateTechnologyHandler  from "../../../application/handlers/technology/update.technology.handler";
-import UpdateTechnologyCommand from "../../../application/commands /technology/update.technology.command";
+import UpdateTechnologyHandler  from "../../../application/handlers/technology/update.technology.handler";
+import UpdateTechnologyCommand from "../../../application/commands/technology/update.technology.command";
 
 class UpdateTechnologyAction {
     async run(req: Request, res: Response) {
