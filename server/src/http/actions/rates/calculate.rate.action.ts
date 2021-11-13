@@ -1,24 +1,17 @@
-import { Request, Response } from "express";
-import Rate from "../../../domain/entities/rates.entity";
-import rateRepository from "../../../infrastructure/repositories/rate.repository";
+import { Request, Response } from 'express';
+import rateRepository from '../../../infrastructure/repositories/rate.repository';
 
-class calculateRateAction{
-            async run(req: Request, res: Response) {
-                    let technology =req.body.technology
-                    let seniority =req.body.seniority
-                    let language =req.body.language
-                    let currency =req.body.currency;
+class calculateRateAction {
+  async run(req: Request, res: Response) {
+    let technologyIds = req.body.technology_ids;
+    let seniority = req.body.seniority;
+    let language = req.body.language;
+    let currency = req.body.currency;
 
-                    let rates= await rateRepository.findAllBy(technology,seniority,language,currency)
-                    let response = rates.map((rate: Rate) => ({
-                        technology_name: rate.getTechnology().getName(),
-                        seniority: rate.getSeniority(),
-                        language: rate.getLanguage(),
-                        currency: rate.getCurrency()
-                    }))
+    let rates = await rateRepository.findAllBy(technologyIds, seniority, language, currency);
 
-        return res.status(200).json({rates:response});
-        }
+    return res.status(200).json({ rates: rates });
+  }
 }
 
-export default new calculateRateAction
+export default new calculateRateAction();

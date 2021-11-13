@@ -11,20 +11,24 @@ const app: express.Application = express();
 const loggerOptions: expressWinston.LoggerOptions = {
   transports: [new winston.transports.Console()],
   format: winston.format.combine(
-      winston.format.json(),
-      winston.format.prettyPrint(),
-      winston.format.colorize({ all: true })
+    winston.format.json(),
+    winston.format.prettyPrint(),
+    winston.format.colorize({ all: true }),
   ),
 };
+
 if (!process.env.DEBUG) {
-    loggerOptions.meta = false; // when not debugging, log requests as one-liners
+  loggerOptions.meta = false; // when not debugging, log requests as one-liners
 }
+
 app.use(expressWinston.logger(loggerOptions));
-const routes: Array<CommonRoutes> = [];
 app.use(cors());
 app.use(express.json());
+
+const routes: Array<CommonRoutes> = [];
 routes.push(new RateRoutes(app));
 routes.push(new TechnologyRoutes(app));
+
 app.listen(3000, () => {
   routes.forEach((route: CommonRoutes) => {
     log(`Routes configured for ${route.getName()}`);

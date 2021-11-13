@@ -1,9 +1,9 @@
-import createTechnologyAction from "../../http/actions/technology/create.technology.action";
-import CommonRoutes from "./common.routes";
-import { Application } from "express";
-import deleteTechnologyAction from "../actions/technology/delete.technology.action";
-import updateTechnologyAction from "../actions/technology/update.technology.action";
-import listTechnologyAction from "../actions/rates/list.rate.action";
+import createTechnologyAction from '../../http/actions/technology/create.technology.action';
+import CommonRoutes from './common.routes';
+import { Application } from 'express';
+import deleteTechnologyAction from '../actions/technology/delete.technology.action';
+import updateTechnologyAction from '../actions/technology/update.technology.action';
+import listTechnologyAction from '../actions/technology/list.technology.action';
 
 class TechnologyRoutes extends CommonRoutes {
   constructor(app: Application) {
@@ -11,7 +11,6 @@ class TechnologyRoutes extends CommonRoutes {
   }
 
   setUpRoutes(): Application {
-
     this.app.post('/technology', createTechnologyAction.run);
 
     this.app.put('/technology/:id', updateTechnologyAction.run);
