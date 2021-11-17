@@ -8,12 +8,14 @@ class DeleteUserAction {
 
         try {
             await DeleteRateHandler.execute(command);
+            return res.status(201).json({message: "Rate deleted"});
         } catch (error) {
             // @ts-ignore
             return res.status(404).json({message: error.message});
         }
 
-        return res.status(204).send();
+        //return res.status(204).send();
+        
     }
 }
 

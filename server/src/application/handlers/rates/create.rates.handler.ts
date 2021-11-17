@@ -9,7 +9,7 @@ class CreateRateHandler {
     const technology: Technology | null = await TechnologyRepository.findOneById(command.getTechnologyId());
 
     if (!technology) {
-      throw new Error();
+      throw new Error('Technology not found');
     }
 
     if (
@@ -20,7 +20,7 @@ class CreateRateHandler {
         command.getCurrency(),
       )
     ) {
-      throw new Error('res.status(404).json({message: Error.message})?');
+      throw new Error('Rate already exists');
     }
 
     const rate: Rate = new Rate(

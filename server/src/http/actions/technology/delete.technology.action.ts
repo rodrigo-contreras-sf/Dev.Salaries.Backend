@@ -8,12 +8,13 @@ class DeleteTechnologyAction {
 
         try {
             await DeleteTechnologyHandler.execute(command);
+            return res.status(201).json({message: "Technology deleted"});
         } catch (error) {
             // @ts-ignore
             return res.status(404).json({message: error.message});
         }
 
-        return res.status(204).send();
+        //return res.status(204).send();
     }
 }
 
